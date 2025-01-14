@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marine Biology</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+      }
+      .sidebar {
+        width: 18%;
+        background-color: #f4f4f4;
+        padding: 20px;
+        border-right: 1px solid #ddd;
+        position: fixed;
+        height: 100%;
+        overflow-y: auto;
+      }
+
+      .sidebar h3 {
+        color: #03ab93;
+        padding-bottom: 20px;
+        font-size: 22px;
+      }
+      .sidebar a {
+        text-decoration: none;
+        display: block;
+        color: #333;
+        padding: 10px 0;
+      }
+
+      .image-container {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 20px 0;
+    }
+
+    .imagenes-extra {
+
+        width: calc(50% - 10px);
+        object-fit: contain;
+        margin: 0;
+        padding-top: 50px;
+    }
+
+    @media screen and (max-width: 768px) {
+        .imagenes-extra {
+            width: 100%;
+            margin: 10px 0;
+        }
+    }
+
+      .sidebar a:hover {
+        background-color: #ddd;
+        padding-left: 10px;
+        transition: padding-left 0.3s ease;
+      }
+      .content {
+        margin-left: 22%;
+        padding: 20px;
+        width: 75%;
+        display: none;
+      }
+      .content.active {
+        display: block;
+      }
+
+      section {
+        margin-bottom: 30px;
+        padding: 60px;
+      }
+
+      section h2 {
+        margin-bottom: 20px;
+        color: #1e5175;
+        font-size: 40px;
+      }
+
+      section img {
+        margin-bottom: 20px;
+        width: 400px;
+        height: 250px;
+        float: right;
+        margin-left: 20px;
+      }
+
+      .margen {
+        margin: 20px;
+      }
+
+      section p {
+        line-height: 1.6;
+      }
+
+      .sidebar a {
+        display: block;
+        color: #333;
+        padding: 10px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+      }
+
+      .sidebar a.active {
+        background-color: #1e5175;
+        color: white;
+      }
+
+      @media screen and (max-width: 768px) {
+        .sidebar {
+          width: 100%;
+          position: relative;
+          height: auto;
+          padding: 20px;
+        }
+
+        .content {
+          margin-left: 0;
+          width: 100%;
+          padding: 10px;
+        }
+
+        section {
+          padding: 20px;
+        }
+
+        section img {
+          width: 100%;
+          height: auto;
+          float: none;
+          margin: 20px 0;
+        }
+
+        section h2 {
+          font-size: 28px;
+        }
+      }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const links = document.querySelectorAll(".sidebar a");
+        const sections = document.querySelectorAll(".content");
+
+        links.forEach((link) => {
+          link.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            const targetId = link.getAttribute("href").substring(1);
+
+            sections.forEach((section) => {
+              if (section.id === targetId) {
+                section.classList.add("active");
+              } else {
+                section.classList.remove("active");
+              }
+            });
+          });
+        });
+      });
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const links = document.querySelectorAll(".sidebar a");
+        const sections = document.querySelectorAll(".content");
+
+        links.forEach((link) => {
+          link.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            // Remove active class from all links
+            links.forEach((l) => l.classList.remove("active"));
+            // Add active class to clicked link
+            link.classList.add("active");
+
+            // ...existing code for showing content...
+          });
+        });
+
+        // Set initial active state
+        links[0].classList.add("active");
+      });
+    </script>
+  </head>
+  <body>
+    <div class="sidebar">
+      <img src="mb-logo.png" alt="Career Overview" />
+      <h3>Contents</h3>
+      <a href="#career">Career Overview</a>
+      <a href="#daily">Daily Tasks</a>
+      <a href="#required">Required Education and Training</a>
+      <a href="#workplace">Workplace</a>
+      <a href="#pathways">Career Pathways</a>
+      <a href="#typical">Typical Earning Potential</a>
+      <a href="#equilibrium">Equilibrium in marine biology</a>
+      <a href="#sources">Sources</a>
+      <p class="margen">"CRISTOBAL REBOLLEDO"</p>
+    </div>
+
+    <div id="career" class="content active">
+      <section>
+        <h2>Career Overview</h2>
+        <img src="career-overview.png" alt="Career Overview" />
+        <ul>
+          <li>
+            Marine biologists study the ocean and its diverse inhabitants,
+            ranging from massive whales to microscopic organisms. Their work
+            involves examining marine ecosystems and environmental conditions to
+            address critical issues such as habitat destruction, pollution,
+            climate change, and the conservation of at-risk species.
+          </li>
+          <li>
+            By understanding the intricate relationships within marine
+            ecosystems and food webs, marine biologists aim to inform
+            conservation policies and develop sustainable alternatives to
+            protect the environment.
+          </li>
+        </ul>
+      </section>
+    </div>
+
+    <div id="daily" class="content">
+      <section>
+        <h2>Daily Tasks</h2>
+        <img src="daily-tasks.png" alt="Daily Tasks" />
+        <ul>
+          <li>
+            Their daily tasks include conducting field research where they
+            collect water, sediment, and biological samples to analyze the
+            health of marine environments.
+          </li>
+          <li>
+            They observe, record, and tag marine species, studying their
+            biology, life cycles, and roles as keystone species, while also
+            investigating invasive species to determine effective ways to
+            mitigate their impact. In the laboratory, marine biologists test
+            these samples for pollution levels, pH, minerals, and nutrient
+            concentrations.
+          </li>
+          <li>
+            Biological samples are analyzed to understand the diets,
+            physiological adaptations, and responses of marine species to
+            climate change. The data collected through these efforts are used to
+            create species population maps and assess the impact of human
+            activities on marine ecosystems.
+          </li>
+          <li>
+            Conservation recommendations are often made to governments,
+            advocating for the creation of protected areas and the adoption of
+            sustainable industrial practices to reduce environmental harm.
+          </li>
+          <li>
+            Marine biologists also monitor and assess the recovery of ecosystems
+            following conservation interventions, ensuring that these efforts
+            lead to measurable improvements in marine health.
+          </li>
+        </ul>
+      </section>
+    </div>
+
+    <div id="required" class="content">
+      <section>
+        <h2>Required Education and Training</h2>
+        <img src="required-education.png" alt="Required Education" />
+        <ul>
+          <li>
+            Marine biologists require a combination of formal education,
+            training, and practical experience to succeed in the field. A
+            bachelor's degree in marine biology, zoology, biology, or a closely
+            related field is essential to work as a marine biologist. These
+            programs often include courses in biology, chemistry, oceanography,
+            ecology, physics, and population trend analysis. Some universities
+            offer programs with a specialized focus on particular environments
+            or species.
+          </li>
+          <li>
+            To apply to these programs, students typically need high school
+            credits in chemistry, math, biology, physics, and English, with
+            admission averages ranging from 84-94%. Bachelor's programs in
+            marine biology generally last about four years.
+          </li>
+          <li>
+            Experience plays a vital role in the marine biology workplace.
+            Volunteering and internships with private or government agencies are
+            highly beneficial for gaining hands-on experience. Aquariums and
+            non-profit organizations offer particularly valuable opportunities
+            for working directly with marine animals, which can be crucial when
+            pursuing specializations.
+          </li>
+        </ul>
+      </section>
+    </div>
+
+    <div id="workplace" class="content">
+      <section>
+        <h2>Workplace</h2>
+        <strong
+          >The workplace of a marine biologist is diverse and dynamic,
+          encompassing outdoor fieldwork, laboratory research, and office-based
+          tasks. Marine biologists typically work for government agencies,
+          private research laboratories, academic institutions, or non-profit
+          conservation organizations. Others find employment at aquariums, zoos,
+          museums, or as university professors, provided they have earned a
+          Ph.D</strong
+        >
+        <hr class="margen" />
+
+        <h3 class="margen">Fieldwork</h3>
+        <ul>
+          <li>
+            A significant portion of a marine biologist's job involves working
+            in marine ecosystems such as oceans, estuaries, and wetlands. Marine
+            biologists often spend days or weeks outdoors conducting field
+            research, which may include collecting seawater samples, performing
+            surveys, and tagging marine animals to monitor their populations and
+            behaviors. This outdoor research is frequently carried out on
+            research vessels, allowing for hands-on engagement with marine
+            environments.
+          </li>
+        </ul>
+
+        <h3 class="margen">Laboratory Research</h3>
+        <ul>
+          <li>
+            When not in the field, marine biologists work in laboratories where
+            they analyze samples, conduct experiments, and use specialized
+            equipment to study marine life and ecosystems. Laboratory work
+            complements field research by providing deeper insights into the
+            biology, behavior, and health of marine organisms.
+          </li>
+        </ul>
+
+        <h3 class="margen">Office Work</h3>
+        <ul>
+          <li>
+            When not conducting field or laboratory work, marine biologists
+            focus on office-based tasks. These include analyzing data, writing
+            reports, preparing scientific papers, and collaborating with other
+            scientists, such as conservationists. They also engage with
+            policymakers to develop and implement conservation strategies.
+          </li>
+        </ul>
+        <hr class="margen" />
+        <strong class="margen">
+          This variety of work makes the marine biologist's workplace both
+          exciting and challenging, offering opportunities to contribute to
+          critical conservation efforts and groundbreaking scientific
+          discoveries.
+        </strong>
+      </section>
+    </div>
+
+    <div id="pathways" class="content">
+      <section>
+        <h2>Career Pathways</h2>
+        <img src="career-pathways.png" alt="Career Pathways" />
+        <p>
+          Marine biologists can pursue various specializations based on their
+          interests. Some focus on marine ecology, studying species interactions
+          and ecosystem functions, while others delve into fields like fisheries
+          biology, marine genetics, or microbiology. Marine biotechnology
+          explores applications of marine organisms in medicine and renewable
+          energy, while marine toxicology investigates the effects of pollutants
+          on aquatic life. Conservation biology, a critical subfield, is
+          dedicated to protecting marine biodiversity by identifying threats and
+          developing sustainable management practices.
+        </p>
+
+        <h3 class="margen">Certifications</h3>
+        <p>
+          Certifications and credentials also enhance career prospects. For
+          instance, the American Academy of Underwater Sciences (AAUS)
+          Scientific Diver Certification ensures safety and competence in
+          underwater research. Certifications like the Certified Fisheries
+          Professional (CFP) or Certified Wildlife Biologist (CWB) validate
+          expertise in specialized fields such as fisheries science or marine
+          wildlife. Dive certifications, such as the PADI Dive Master
+          credential, are advantageous for safely conducting fieldwork in
+          aquatic environments.
+        </p>
+      </section>
+    </div>
+
+    <div id="typical" class="content">
+      <section>
+        <h2>Typical earning potential</h2>
+        <strong class="margen"
+          >The salary of marine biologists varies depending on their location,
+          level of expertise, and specific roles.</strong
+        >
+        <h3 class="margen">In Canada</h1>
+        <p>
+          According to the Government of Canada (updated December 3, 2024),
+          marine biologists earn between $25.00/hour and $61.54/hour nationwide,
+          with a median of $40.00/hour. Salaries vary significantly across
+          provinces and territories, with Northwest territories earning highest
+          at $78.85/hour and Prince Edward Island having the lowest $ 44.62
+          /hour
+        </p>
+        <h3 class="margen">In the U.S</h1>
+        <p>
+          According to Indeed (updated January 4, 2025), U.S. marine biologists
+          have annual salaries ranging from $40,080 to $73,026, with an average
+          of $54,101.
+        </p>
+        <hr class="margen" />
+        <strong class="margen"
+          >Salaries tend to be higher in regions where marine biology expertise
+          is in greater demand or where the cost of living is elevated, such as
+          the northern territories in Canada and coastal states in the U.S.
+          Additionally, advanced certifications, specializations, and experience
+          can significantly increase earning potential.</strong
+        >
+      </section>
+    </div>
+
+    <div id="equilibrium" class="content">
+      <section>
+        <h2>Equilibrium in marine biology</h2>
+        <img src="equilibrium-1.png" alt="Equilibrium 1" />
+        <strong
+          >Chemical equilibrium plays a crucial role in the balance of marine
+          ecosystems. For marine biologists, understanding how shifts in
+          equilibrium affect ocean chemistry is essential, particularly in the
+          context of ocean acidification. This phenomenon, driven by increasing
+          atmospheric carbon dioxide (COz), disrupts the natural equilibrium of
+          carbonate chemistry in seawater, with significant consequences for
+          calcifying organisms. When COz is absorbed by seawater, it
+          participates in a series of reversible chemical reactions creating a
+          dynamic equilibrium</strong
+        >
+        <hr class="margen" />
+
+        <h3>Calcification Process</h3>
+        
+        <p>
+          Calcifying organisms combine calcium ions (Ca²⁺) and carbonate ions
+          (CO₃²⁻) to form calcium carbonate (CaCO₃):
+        </p>
+        <p>Ca²⁺ + CO₃²⁻ → CaCO₃</p>
+
+        <p>
+          As ocean acidity increases, the equilibrium in the carbonate system
+          shifts to the side that produces more bicarbonate ions (HCO₃⁻) and
+          free hydrogen ions (H⁺), reducing the availability of carbonate ions
+          (CO₃²⁻). This shift occurs due to Le Chatelier's Principle, which
+          states that a system at equilibrium will adjust to counteract changes
+          in conditions.
+        </p>
+
+        <p>
+          When atmospheric CO₂ dissolves into seawater, it forms dissolved
+          carbon dioxide (CO₂(aq)), which reacts with water to produce carbonic
+          acid (H₂CO₃). This carbonic acid dissociates into bicarbonate ions
+          (HCO₃⁻) and hydrogen ions (H⁺). The presence of excess hydrogen ions
+          shifts the equilibrium further, encouraging the formation of more
+          bicarbonate at the expense of carbonate ions. This process diminishes
+          the availability of carbonate ions (CO₃²⁻), which are essential for
+          calcifying organisms to build calcium carbonate (CaCO₃) shells and
+          skeletons. As a result, the equilibrium adjustments driven by
+          increased acidity directly impact the capacity of marine organisms to
+          maintain their structural integrity, leading to significant ecological
+          consequences.
+        </p>
+
+
+        <p>
+          The reduction in available carbonate ions directly impacts
+          calcification, making it increasingly difficult for organisms such as
+          corals, mollusks, and pteropods to build and maintain calcium
+          carbonate structures. This can have broader impacts in food webs as
+          animals like pteropods are the main source of food for whales and
+          other filter feeders.
+        </p>
+
+        <p>
+          The reduced calcification also affects reef-building, which is vital
+          for biodiversity and coastal protection, as coral reefs serve as
+          nurseries for many marine species. Furthermore, ocean acidification
+          impairs the sensory functions of larval fish, such as their ability to
+          detect predators, significantly reducing their survival rates.
+        </p>
+
+        <p>
+          Marine biologists monitor these chemical shifts and study the
+          resilience of marine species. Mitigating acidification requires global
+          efforts to reduce CO₂ emissions and explore localized solutions, such
+          as growing seaweed to absorb CO₂. Understanding the chemical
+          equilibrium that governs ocean acidity is critical to preserving
+          marine ecosystems and the services they provide to humanity.
+        </p>
+
+                <img class="imagenes-extra" src="equilibrium-2.png" alt="Equilibrium 2" />
+        <img class="imagenes-extra" src="equilibrium-3.png" alt="Equilibrium 3" />
+      </section>
+    </div>
+
+    <div id="sources" class="content">
+      <section>
+        <h2>Sources</h2>
+        <ul>
+          <li>
+            <a
+              href="https://www.jobbank.gc.ca/marketreport/wages-occupation/2618/ca"
+              target="_blank"
+            >
+              Canada, Employment and Social Development. Marine Biologist in
+              Canada | Wages - Job Bank. 19 Nov. 2024
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.careerexplorer.com/careers/marine-biologist/how-to-become/"
+              target="_blank"
+            >
+              CareerExplorer. (2023, December 15). How to become a marine
+              biologist
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://blogs.furman.edu/greenbelt/2018/09/15/chemistry-behind-ocean-acidification/"
+              target="_blank"
+            >
+              Chemistry Behind Ocean Acidification - Furman Greenbelt
+              Sustainable Living Community. (n.d.)
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://memo.climatefresk.org/en-GB/v9.0/card/23"
+              target="_blank"
+            >
+              Climate Fresk - Calcification difficulties. (2024). Climate Fresk
+              Memo
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.epa.gov/ocean-acidification/effects-ocean-and-coastal-acidification-marine-life"
+              target="_blank"
+            >
+              Environmental Protection Agency. (2022, November 9). Effects of
+              Ocean and Coastal Acidification on Marine Life | US EPA
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.environmentalscience.org/career/marine-biologist"
+              target="_blank"
+            >
+              Environmental Science. (2014). Environmental Science.
+              Environmentalscience.org; Wiley University Services
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://blogs.egu.eu/geolog/2013/05/08/geosciences-column-larvae-climate-and-calcification/"
+              target="_blank"
+            >
+              Geosciences Column: Larvae, Climate and Calcification. (n.d.).
+              GeoLog
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.indeed.com/hire/job-description/marine-biologist"
+              target="_blank"
+            >
+              Marine Biologist Job Description [Updated for 2021]. (n.d.).
+              Www.indeed.com
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.indeed.com/career/marine-biologist/salaries"
+              target="_blank"
+            >
+              "Marine Biologist Salary in United States." Www.indeed.com
+            </a>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </body>
+</html>
